@@ -158,6 +158,7 @@ arduino_serial: &uart1 {
 	pinctrl-names = "default", "sleep";
 };
 
+/*
 arduino_i2c: &i2c0 {
 	compatible = "nordic,nrf-twi";
 	status = "okay";
@@ -165,6 +166,7 @@ arduino_i2c: &i2c0 {
 	pinctrl-1 = <&i2c0_sleep>;
 	pinctrl-names = "default", "sleep";
 };
+*/
 
 &i2c1 {
 	compatible = "nordic,nrf-twi";
@@ -174,6 +176,20 @@ arduino_i2c: &i2c0 {
 	pinctrl-1 = <&i2c1_sleep>;
 	pinctrl-names = "default", "sleep";
 };
+
+/* ------------------------------------ */
+/* Mobion Project, Mohawk               */
+/* Added by Jeong, 2022.04.22 */
+
+&i2c0 {
+	compatible = "nordic,nrf-twim";
+	status = "okay";
+	sda-pin = <27>;
+	scl-pin = <26>;
+	clock-frequency = <I2C_BITRATE_STANDARD>;  
+};
+
+/* ------------------------------------ */
 
 &pwm0 {
 	status = "okay";
